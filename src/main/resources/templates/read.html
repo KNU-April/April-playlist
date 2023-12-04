@@ -2,22 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Playlist Management</title>
 </head>
 <body>
 
+<!-- Include the menu fragment -->
 <th:block th:replace="~{menu :: menu}" />
 
-영화 상세 페이지  <br/>
+<!-- Playlist List Section -->
+<h2>Playlist List</h2>
 
-idx : <span th:text="${movie.idx}" />   <br/>
-<span th:text="${movie.title}" />   <br/>
-<img th:src="${movie.image}" width="200" />   <br/>
-<textarea rows="5" cols="40" readonly>[[${movie.content}]]</textarea><br/>
+<!-- Display Playlists in a Table -->
+<table border="2">
+    <tr>
+        <th>Idx</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="playlist : ${playlists}">
+        <td th:text="${playlist.idx}"></td>
+        <td><img th:src="@{${playlist.image}}" width="30" /></td>
+        <td><a th:href="@{/read/{idx}(idx=${playlist.idx})}" th:text="${playlist.title}"></a></td>
+        <td>
+            <!-- Link to Update Playlist -->
+            <a th:href="@{/updateForm/{idx}(idx=${playlist.idx})}">Update</a>
 
-<a th:href="@{/updateForm/{idx}(idx=${movie.idx})}">수정</a>
-<a th:href="@{/delete/{idx}(idx=${movie.idx})}">삭제</a>
+            <!-- Link to Delete Playlist -->
+            <a th:href="@{/delete/{idx}(idx=${playlist.idx})}" onclick="return confirm('Are you sure you want to delete this playlist?')">Delete</a>
+        </td>
+    </tr>
+</table>
 
+<!-- Link to Add New Playlist -->
+<a th:href="@{/createForm}">Add New Playlist</a>
 
 </body>
 </html>

@@ -9,10 +9,10 @@
 
 <th:block th:replace="~{menu::menu}" />
 
-영화 목록 페이지  <br/>
+플레이리스트 목록  <br/>
 
 <table border="2">
-    <tr th:each="m : ${movies}">
+    <tr th:each="m : ${playlists}">
         <td> [[${m.idx}]] </td>
         <td> <img th:src="@{${m.image}}" width="30" />  </td>
         <td> <a th:href="@{/read/{idx}(idx=${m.idx})}">[[${m.title}]]</a> </td>

@@ -43,6 +43,13 @@ public class PlaylistController {
         return "list";
     }
 
+//    @RequestMapping("/musiclist") //플레이리스트 목록
+//    public  String musiclist(Model model) {
+//        model.addAttribute("playlists",
+//                playlistService.findAll());
+//        return "musiclist";
+//    }
+
     @RequestMapping("/read/{idx}")  //플레이리스트 접속
     public  String read(@PathVariable int idx, Model model) {
         model.addAttribute("playlist", playlistService.findById(idx));

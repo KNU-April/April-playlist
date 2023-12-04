@@ -8,7 +8,7 @@
 <th:block th:replace="~{menu :: menu}" />
 데이터 수정
 
-<form action="/update" th:object="${movie}" method="post" enctype="multipart/form-data" >
+<form action="/update" th:object="${playlist}" method="post" enctype="multipart/form-data" >
 idx : <input type="text" readonly th:field="*{idx}"><br/>
 title : <input type="text" th:field="*{title}"><br/>
 image : <input type="text" th:field="*{image}">
