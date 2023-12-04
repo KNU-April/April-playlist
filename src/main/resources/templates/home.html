@@ -3,18 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            color: #ff3399;
+        }
+
+        h1 {
+            color: #ff3399;
+        }
+
+        form {
+            margin-top: 20px;
+            border: 2px solid #ff3399;
+            padding: 10px;
+            width: 300px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto; 
+        }
+    </style>
 </head>
 <body>
-
 <th:block th:replace="~{menu::menu}" />
 <h1>PEACH</h1>
 
 <img src="peach.png" width="300"/>
 
 <form action="/form">
-    <input type="text" name="id">
-    <input type="password" name="pwd">
-    <input type="submit" value="login">
+    <input type="text" name="id" placeholder="아이디">
+    <input type="password" name="pwd" placeholder="비밀번호">
+    <input type="submit" value="Login">
 </form>
 
 <h3>music playlist</h3>
