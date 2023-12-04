@@ -1,4 +1,4 @@
-package com.example.springplaylist;
+package com.example.springmusic;
 
 import com.example.springplaylist.MusicDto;
 import com.example.springplaylist.MusicService;
