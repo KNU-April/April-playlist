@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:replace="~{menu :: menu}" />
+데이터 추가
+
+<form action="/insert"  method="post" enctype="multipart/form-data">
+title : <input type="text" ><br/>
+image : <input type="file" name="files" /> <br/>
+<textarea rows="5" cols="40" name="content"></textarea><br/>
+<input type="submit" value="추가" />
+</form>
+
+</body>
+
+
+
+</body>
+</html>

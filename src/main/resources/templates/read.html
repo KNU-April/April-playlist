@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<th:block th:replace="~{menu :: menu}" />
+
+영화 상세 페이지  <br/>
+
+idx : <span th:text="${movie.idx}" />   <br/>
+<span th:text="${movie.title}" />   <br/>
+<img th:src="${movie.image}" width="200" />   <br/>
+<textarea rows="5" cols="40" readonly>[[${movie.content}]]</textarea><br/>
+
+<a th:href="@{/updateForm/{idx}(idx=${movie.idx})}">수정</a>
+<a th:href="@{/delete/{idx}(idx=${movie.idx})}">삭제</a>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:replace="~{menu :: menu}" />
+데이터 수정
+
+<form action="/update" th:object="${movie}" method="post" enctype="multipart/form-data" >
+idx : <input type="text" readonly th:field="*{idx}"><br/>
+title : <input type="text" th:field="*{title}"><br/>
+image : <input type="text" th:field="*{image}">
+<input type="file" name="files"> <br/>
+<textarea rows="5" cols="40" th:field="*{content}"> </textarea><br/>
+<input type="submit" value="수정" />
+</form>
+
+
+</body>
+
+
+
+</body>
+</html>

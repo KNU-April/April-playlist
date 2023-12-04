@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/form">
+    <input type="text" name="id">
+    <input type="password" name="pwd">
+    <input type="submit" value="login">
+</form>
+
+<br>
+<form action="/form2">
+    idx <input type="text" name="idx"> <br/>
+    title <input type="text" name="title"> <br/>
+    image <input type="text" name="image"> <br/>
+    <textarea rows="4" cols="40" name="content" ></textarea>  <br/>
+    <input type="submit" value="add">
+</form>
+
+<br>
+<form action="/form3">
+    idx <input type="text" name="idx"> <br/>
+    title <input type="text" name="title"> <br/>
+    <input type="submit" value="go">
+</form>
+
+<br/>
+<form action="/upload"  method="post" enctype="multipart/form-data">
+    title : <input type="text" name="title"><br/>
+    image : <input type="file" name="image" /> <br/>
+    <input type="submit" value="upload" />
+</form>
+
+<br/>
+<img src="/image" width="200"/>
+</body>
+</html>

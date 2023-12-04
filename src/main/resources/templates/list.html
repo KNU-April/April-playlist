@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+<th:block th:replace="~{menu::menu}" />
+
+영화 목록 페이지  <br/>
+
+<table border="2">
+    <tr th:each="m : ${movies}">
+        <td> [[${m.idx}]] </td>
+        <td> <img th:src="@{${m.image}}" width="30" />  </td>
+        <td> <a th:href="@{/read/{idx}(idx=${m.idx})}">[[${m.title}]]</a> </td>
+        <td> <a th:href="@{/delete/{idx}(idx=${m.idx})}">삭제</a> </td>
+    </tr>
+</table>
+
+
+
+
+</body>
+</html>

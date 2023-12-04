@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<form action="/no" th:object="${movie}" >
+    idx <input type="text"  th:field="*{idx}"> <br/>
+    title <input type="text" th:field="*{title}"> <br/>
+    image <input type="text" th:field="*{image}"> <br/>
+    <textarea rows="4" cols="40" th:field="*{content}" ></textarea>  <br/>
+    <input type="submit" value="add">
+</form>
+
+
+
+
+</body>
+</html>
