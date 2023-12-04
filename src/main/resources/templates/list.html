@@ -3,25 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            color: #ff3399;
+        }
+
+        h1 {
+            color: #ff3399;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 2px solid #ff3399;
+            padding: 8px;
+            text-align: left;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
 
 <th:block th:replace="~{menu::menu}" />
 
-플레이리스트 목록  <br/>
+<h1>PEACH</h1>
 
 <table border="2">
     <tr th:each="m : ${playlists}">
         <td> [[${m.idx}]] </td>
         <td> <img th:src="@{${m.image}}" width="30" />  </td>
-        <td> <a th:href="@{/read/{idx}(idx=${m.idx})}">[[${m.title}]]</a> </td>
+        <td> <a th:href="@{/read/{idx}(idx=${m.idx})}" th:text="${m.title}"></a> </td>
         <td> <a th:href="@{/delete/{idx}(idx=${m.idx})}">삭제</a> </td>
     </tr>
 </table>
-
-
-
 
 </body>
 </html>

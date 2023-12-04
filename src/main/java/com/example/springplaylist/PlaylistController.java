@@ -33,7 +33,7 @@ public class PlaylistController {
     @ResponseBody
     public String form(@RequestParam("id") String id,
                        @RequestParam("pwd") String pwd){
-        return "id :" + id + "    pwd :" + pwd;
+        return "id :" + id + "    pwd :" + pwd + "로그인이 완료되었습니다.";
     }
 
     @RequestMapping("/list") //플레이리스트 목록
