@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 @Controller
 
@@ -19,6 +20,9 @@ public class PlaylistController {
 
     @Autowired
     private PlaylistService playlistService;
+    @Autowired
+    private MusicService musicService;
+
     @RequestMapping("/") //메인페이지
     public  String home() {
         return "home";

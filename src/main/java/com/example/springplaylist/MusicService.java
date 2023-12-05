@@ -7,4 +7,5 @@ public interface MusicService {
     public MusicDto findById(int id);
     public void delete(int idx);
     public MusicDto save(MusicDto music);
+//    ArrayList<MusicDto> findAllByPlaylistIdx(int playlistIdx);
 }

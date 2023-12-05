@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Include the menu fragment -->
+<th:block th:replace="~{menu :: menu}" />
+
+<!-- Playlist List Section -->
+<h2>Playlist List</h2>
+
+<!-- Display Playlists in a Table -->
+<table border="2">
+    <tr>
+        <th>Idx</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="musicList : ${musicLists}">
+        <td th:text="${musicList.idx}"></td>
+        <td><img th:src="@{${musicList.image}}" width="30" /></td>
+        <td><a th:href="@{/read/{idx}(idx=${musicList.idx})}" th:text="${musicList.title}"></a></td>
+        <td>
+            <!-- Link to Delete Playlist -->
+            <a th:href="@{/delete/{idx}(idx=${musicList.idx})}" onclick="return confirm('Are you sure you want to delete this playlist?')">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

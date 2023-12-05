@@ -8,20 +8,15 @@
 <body>
 
 <th:block th:replace="~{menu::menu}" />
-
 플레이리스트 목록  <br/>
-
 <table border="2">
-  <tr th:each="m : ${playlists}">
+  <tr th:each="m : ${musicLists}">
     <td> [[${m.idx}]] </td>
+    <td> <a th:href="@{/musicList/{idx}(idx=${m.idx})}">[[${m.title}]]</a> </td>
     <td> <img th:src="@{${m.image}}" width="30" />  </td>
-    <td> <a th:href="@{/read/{idx}(idx=${m.idx})}">[[${m.title}]]</a> </td>
-    <td> <a th:href="@{/delete/{idx}(idx=${m.idx})}">삭제</a> </td>
+    <td> [[${m.artist}]] </td>
+    <td> <a th:href="@{/read/delete/{idx}(idx=${m.idx})}">삭제</a> </td>
   </tr>
 </table>
-
-
-
-
 </body>
 </html>

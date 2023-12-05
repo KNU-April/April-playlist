@@ -21,22 +21,19 @@
         <th>Artist</th>
         <th>Action</th>
     </tr>
-    <tr th:each="playlist : ${playlists}">
-        <td th:text="${playlist.idx}"></td>
-        <td><img th:src="@{${playlist.image}}" width="30" /></td>
-        <td><a th:href="@{/read/{idx}(idx=${playlist.idx})}" th:text="${playlist.title}"></a></td>
+    <tr th:each="music : ${playlist.musicList}">
+        <td th:text="${music.idx}"></td>
+        <td><img th:src="@{${music.image}}" width="30" /></td>
+        <td th:text="${music.title}"></td>
+        <td th:text="${music.artist}"></td>
         <td>
-            <!-- Link to Update Playlist -->
-            <a th:href="@{/updateForm/{idx}(idx=${playlist.idx})}">Update</a>
-
-            <!-- Link to Delete Playlist -->
-            <a th:href="@{/delete/{idx}(idx=${playlist.idx})}" onclick="return confirm('Are you sure you want to delete this playlist?')">Delete</a>
+            <!-- Link to Delete Music -->
+            <a th:href="@{/delete/{idx}(idx=${music.idx})}" onclick="return confirm('Are you sure you want to delete this music?')">Delete</a>
         </td>
     </tr>
 </table>
 
 <!-- Link to Add New Playlist -->
-<a th:href="@{/createForm}">Add New Playlist</a>
-
+<a th:href="@{/read/{idx}/musicInsertForm(idx=${playlist.idx})}">Add New Music</a>
 </body>
 </html>

@@ -7,4 +7,5 @@ public interface PlaylistService {
     public PlaylistDto findById(int id);
     public void delete(int idx);
     public PlaylistDto save(PlaylistDto playlist);
+    public void addMusic(int playlistIdx, MusicDto music);
 }

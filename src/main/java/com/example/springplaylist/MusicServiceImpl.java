@@ -1,16 +1,19 @@
 package com.example.springplaylist;
 
-import java.util.ArrayList;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+@Service
 public class MusicServiceImpl implements MusicService {
     private ArrayList<MusicDto> db = new ArrayList();
 
     public MusicServiceImpl() {
         System.out.println("MusicServiceImpl 객체 생성");
-        db.add(new MusicDto(1, "우리가 말하지 않는것", "/download/movie1.jpg", "영화 내용 \n우리가 말하지 않는것"));
+        db.add(new MusicDto(1, "이럴거면그러지말지", "/music1.jpg", "백아연"));
         db.add(new MusicDto(2, "리미트", "/download/movie2.jpg", "영화 내용 \n리미트"));
-        db.add(new MusicDto(3,  "시맨텍에러더무비", "/download/movie3.jpg", "영화 내용 \n시맨텍에러더무비"));
-        db.add(new MusicDto(4, "락다운213주", "/download/movie4.jpg", "영화 내용 \n락다운213주"));    }
+}
 
     @Override
     public ArrayList<MusicDto> findAll() {
@@ -43,4 +46,5 @@ public class MusicServiceImpl implements MusicService {
             return temp;
         }
     }
+
 }
