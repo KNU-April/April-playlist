@@ -5,7 +5,33 @@
     <title>Playlist Management</title>
 </head>
 <body>
+<style>
+    body {
+        background-color: #ffe6f2;
+        color: #ff3399;
+    }
 
+    h1 {
+        color: #ff3399;
+    }
+
+    table {
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 2px solid #ff3399;
+        padding: 8px;
+        text-align: left;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+</style>
 <!-- Include the menu fragment -->
 <th:block th:replace="~{menu :: menu}" />
 
@@ -28,8 +54,7 @@
         <td th:text="${music.artist}"></td>
         <td>
             <!-- Link to Delete Music -->
-            <a th:href="@{/delete/{idx}(idx=${music.idx})}" onclick="return confirm('Are you sure you want to delete this music?')">Delete</a>
-        </td>
+            <a th:href="@{/musicDelete/{playlistIdx}/{musicIdx}(playlistIdx=${playlist.idx}, musicIdx=${music.idx})}" onclick="return confirm('Are you sure you want to delete this music?')">Delete</a>        </td>
     </tr>
 </table>
 

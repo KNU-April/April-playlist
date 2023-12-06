@@ -5,6 +5,33 @@
     <title>Title</title>
 </head>
 <body>
+<style>
+    body {
+        background-color: #ffe6f2;
+        color: #ff3399;
+    }
+
+    h1 {
+        color: #ff3399;
+    }
+
+    table {
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 2px solid #ff3399;
+        padding: 8px;
+        text-align: left;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+</style>
 음악 추가하기
 <form th:action="@{'/musicInsert/'+ ${playlist.idx}}" method="post" enctype="multipart/form-data">
     title : <input type="text" name="title" placeholder="Title"/><br/>

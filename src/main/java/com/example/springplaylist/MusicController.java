@@ -50,7 +50,7 @@ public class MusicController {
             music.setImage("/download/" + originalFilename);
         }
         music.setIdx(-1);
-        playlistService.addMusic(playlistIdx, music); // 수정된 부분
+        playlistService.addMusic(playlistIdx, music);
 
         // 리다이렉트 주소를 수정하여 read/{idx}로 이동하게 함
         return "redirect:/read/" + playlistIdx;
@@ -63,10 +63,17 @@ public class MusicController {
         return "music";
     }
 
-    @RequestMapping("/read/delete/{idx}")  //삭제
-    public  String delete(@PathVariable int idx) {
-        musicService.delete(idx);
-        return "redirect:/musicList";
+    @RequestMapping("/musicDelete/{playlistIdx}/{musicIdx}")
+    public String delete(@PathVariable("playlistIdx") int playlistIdx, @PathVariable("musicIdx") int musicIdx) {
+        PlaylistDto playlist = playlistService.findById(playlistIdx);
+        MusicDto musicDto = musicService.findById(musicIdx);
+        if (playlist != null && musicDto != null) {
+            // 플레이리스트에서 음악 삭제
+            playlist.removeMusic(musicDto);
+            // 음악 서비스에서 음악 삭제
+            musicService.delete(musicIdx);
+        }
+        return "redirect:/read/" + playlistIdx;
     }
 
     @RequestMapping("/musicInsertForm")  //등록
