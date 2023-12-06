@@ -29,6 +29,15 @@
             display: block;
             margin: 0 auto;
         }
+
+        .like-btn {
+            cursor: pointer;
+            color: #808080;
+        }
+
+        .liked {
+            color: #ff3399;
+        }
     </style>
 </head>
 
@@ -43,9 +52,29 @@
         <td> [[${m.idx}]] </td>
         <td> <img th:src="@{${m.image}}" width="30" />  </td>
         <td> <a th:href="@{/read/{idx}(idx=${m.idx})}" th:text="${m.title}"></a> </td>
-        <td> <a th:href="@{/delete/{idx}(idx=${m.idx})}">삭제</a> </td>
+        <td>
+            <span class="like-btn" onclick="toggleLike(this, ${m.idx})">좋아요</span>
+            <span id="like-count-${m.idx}">0</span>
+        </td>
     </tr>
 </table>
+
+<script>
+    function toggleLike(button, idx) {
+        var likeCountElement = document.getElementById('like-count-' + idx);
+        var currentCount = parseInt(likeCountElement.textContent);
+
+        if (button.classList.contains('liked')) {
+            // 이미 좋아요를 누른 경우
+            button.classList.remove('liked');
+            likeCountElement.textContent = currentCount - 1;
+        } else {
+            // 좋아요를 누르지 않은 경우
+            button.classList.add('liked');
+            likeCountElement.textContent = currentCount + 1;
+        }
+    }
+</script>
 
 </body>
 </html>
