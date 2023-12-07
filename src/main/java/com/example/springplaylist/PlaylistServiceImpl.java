@@ -12,10 +12,10 @@ public class PlaylistServiceImpl implements PlaylistService {
     private MusicService musicService;
     public PlaylistServiceImpl() {
         System.out.println("playlistServiceImpl 객체 생성");
-        db.add(new PlaylistDto(1, "우리가 말하지 않는것", "/download/movie1.jpg", "영화 내용 \n우리가 말하지 않는것", new ArrayList<>()));
-        db.add(new PlaylistDto(2, "리미트", "/download/movie2.jpg", "영화 내용 \n리미트", new ArrayList<>()));
-        db.add(new PlaylistDto(3, "시맨텍에러더무비", "/download/movie3.jpg", "영화 내용 \n시맨텍에러더무비", new ArrayList<>()));
-        db.add(new PlaylistDto(4, "락다운213주", "/download/movie4.jpg", "영화 내용 \n락다운213주", new ArrayList<>()));
+        db.add(new PlaylistDto(1, "겨울 플레이리스트", "/download/winter.jpeg", "겨울 플레이리스트", new ArrayList<>()));
+        db.add(new PlaylistDto(2, "봄 플레이리스트", "/download/spring.jpeg", "영화 내용 \n리미트", new ArrayList<>()));
+        db.add(new PlaylistDto(3,  "여름 플레이리스트", "/download/summer.jpeg", "영화 내용 \n시맨텍에러더무비", new ArrayList<>()));
+        db.add(new PlaylistDto(4, "가을 플레이리스트", "/download/fall.jpeg", "영화 내용 \n락다운213주", new ArrayList<>()));
     }
 
     @Override
