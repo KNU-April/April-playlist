@@ -46,7 +46,12 @@
 <th:block th:replace="~{menu::menu}" />
 
 <h1>PEACH</h1>
-
+<div class="search-container">
+    <form th:action="@{/search}" method="get">
+        <input type="text" class="search-input" id="searchInput" name="query" placeholder="검색어를 입력하세요">
+        <button type="submit">검색</button>
+    </form>
+</div>
 <table border="2">
     <tr th:each="m : ${playlists}">
         <td> [[${m.idx}]] </td>

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PlaylistServiceImpl implements PlaylistService {
@@ -29,7 +31,12 @@ public class PlaylistServiceImpl implements PlaylistService {
         PlaylistDto find = db.stream().filter(m -> m.getIdx() == idx).findAny().get();
         return find;
     }
-
+    @Override
+    public List<PlaylistDto> findByTitleContaining(String query) {
+        return db.stream()
+                .filter(playlist -> playlist.getTitle().contains(query))
+                .collect(Collectors.toList());
+    }
     @Override
     public void delete(int idx) {
         db.remove(db.stream().filter(m -> m.getIdx() == idx).findAny().get());

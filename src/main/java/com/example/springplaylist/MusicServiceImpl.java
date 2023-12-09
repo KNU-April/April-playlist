@@ -11,8 +11,7 @@ public class MusicServiceImpl implements MusicService {
 
     public MusicServiceImpl() {
         System.out.println("MusicServiceImpl 객체 생성");
-        db.add(new MusicDto(1, "이럴거면그러지말지", "/music1.jpg", "백아연"));
-        db.add(new MusicDto(2, "리미트", "/download/movie2.jpg", "영화 내용 \n리미트"));
+        db.add(new MusicDto(0, "이럴거면그러지말지", "/music1.jpg", "백아연"));
 }
 
     @Override

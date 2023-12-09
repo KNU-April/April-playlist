@@ -46,7 +46,12 @@ public class PlaylistController {
                 playlistService.findAll());
         return "list";
     }
-
+    @RequestMapping("/search")
+    public String search(@RequestParam("query") String query, Model model) {
+        List<PlaylistDto> searchResults = playlistService.findByTitleContaining(query);
+        model.addAttribute("playlists", searchResults);
+        return "search";
+    }
 //    @RequestMapping("/musiclist") //플레이리스트 목록
 //    public  String musiclist(Model model) {
 //        model.addAttribute("playlists",
