@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -53,33 +54,41 @@
     </form>
 </div>
 <table border="2">
-    <tr th:each="m : ${playlists}">
-        <td> [[${m.idx}]] </td>
-        <td> <img th:src="@{${m.image}}" width="30" />  </td>
-        <td> <a th:href="@{/read/{idx}(idx=${m.idx})}" th:text="${m.title}"></a> </td>
+    <tr th:each="m, rowStat : ${playlists}">
+        <td th:text="${m.idx}"></td>
+        <td><img th:src="@{${m.image}}" width="30" /></td>
+        <td><a th:href="@{/read/{idx}(idx=${m.idx})}" th:text="${m.title}"></a></td>
         <td>
-            <span class="like-btn" onclick="toggleLike(this, ${m.idx})">좋아요</span>
-            <span id="like-count-${m.idx}">0</span>
+            <span class="like-btn" th:attr="data-index=${rowStat.index}">좋아요</span>
+            <span th:id="'like-count-' + ${rowStat.index}">0</span>
         </td>
     </tr>
 </table>
 
 <script>
-    function toggleLike(button, idx) {
-        var likeCountElement = document.getElementById('like-count-' + idx);
+    document.addEventListener('DOMContentLoaded', function () {
+        var likeButtons = document.querySelectorAll('.like-btn');
+        likeButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                toggleLike(this);
+            });
+        });
+    });
+
+    function toggleLike(button) {
+        var index = button.getAttribute('data-index');
+        var likeCountElement = document.getElementById('like-count-' + index);
         var currentCount = parseInt(likeCountElement.textContent);
 
         if (button.classList.contains('liked')) {
-            // 이미 좋아요를 누른 경우
             button.classList.remove('liked');
             likeCountElement.textContent = currentCount - 1;
         } else {
-            // 좋아요를 누르지 않은 경우
             button.classList.add('liked');
             likeCountElement.textContent = currentCount + 1;
         }
     }
 </script>
-
 </body>
 </html>
+
